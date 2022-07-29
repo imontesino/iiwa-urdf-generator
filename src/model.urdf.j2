@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+{% from "macros/material.sdf.j2" import material_definition with context %}
+
+<robot name="lbr_iiwa">
+
+{% for material in materials %}
+{{ material_definition(material.name, material.color) }}
+{% endfor %}
+
+{% for link_definition in links %}
+{% set file = link_definition.file %}
+{% from file import link%}
+{{ link(link_definition.name, link_definition.material, link_definition.mesh_folder) }}
+{% endfor %}
+
+{% for joint_definition in joints %}
+{% set file = joint_definition.file %}
+{% from file import joint%}
+{{ joint(joint_definition.name, joint_definition.parent_link_name, joint_definition.child_link_name) }}
+{% endfor %}
+
+</robot>
+

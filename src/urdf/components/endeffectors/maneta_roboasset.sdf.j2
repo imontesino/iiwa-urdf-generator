@@ -1,0 +1,22 @@
+{% macro link(name, material, mesh_folder) %}
+<link name="{{ name }}">
+    <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0.059"/>
+        <mass value="0.69"/>
+        <inertia  ixx="0.000272338368" ixy="0" iyy="0.000801116672" ixz="0" iyz="0" izz="0.000564673216"/>
+    </inertial>
+    <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+            <mesh filename="{{ mesh_folder }}/ManetaFT.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="{{ material }}"/>
+    </visual>
+    <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+            <mesh filename="{{ mesh_folder }}/ManetaFT.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+    </collision>
+</link>
+{% endmacro %}

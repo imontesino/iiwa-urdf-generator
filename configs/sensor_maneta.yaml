@@ -1,0 +1,15 @@
+parent: base_iiwa
+
+components:
+  joint_flange:
+
+  onrobot_hex:
+    type: link
+    material: Grey
+
+  onrobot_hex_flange:
+    type: joint
+
+  maneta_roboasset:
+    type: link
+    material: Grey

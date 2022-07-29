@@ -1,0 +1,5 @@
+{% macro material_definition(name, rgba) -%}
+<material name="{{name}}">
+    <color rgba="{{ rgba[0] }} {{ rgba[1] }} {{ rgba[2] }} {{ rgba[3] }}"/>
+</material>
+{%- endmacro %}

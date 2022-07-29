@@ -1,0 +1,63 @@
+materials:
+  # color: list of 4 floats (r, g, b, a)
+  grey:
+    name: Grey
+    color:
+      - 0.7
+      - 0.7
+      - 0.7
+      - 1.0
+  orange:
+    name: Orange
+    color:
+      - 1.0
+      - 0.423529411765
+      - 0.0392156862745
+      - 1.0
+  blue:
+    name: Blue
+    color:
+      - 0.5
+      - 0.7
+      - 1.0
+      - 1.0
+
+components:
+  link_0:
+    material: Grey
+
+  joint_0:
+
+  link_1:
+    material: Blue
+
+  joint_1:
+
+  link_2:
+    material: Blue
+
+  joint_2:
+
+  link_3:
+    material: Orange
+
+  joint_3:
+
+  link_4:
+    material: Blue
+
+  joint_4:
+    name:
+
+  link_5:
+    material: Blue
+
+  joint_5:
+
+  link_6:
+    material: Orange
+
+  joint_6:
+
+  link_7:
+    material: Grey

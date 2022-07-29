@@ -1,0 +1,8 @@
+parent: base_iiwa
+
+components:
+  joint_flange:
+
+  maneta_roboasset:
+    type: link
+    material: Grey

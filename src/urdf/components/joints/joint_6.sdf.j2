@@ -1,0 +1,10 @@
+{% macro joint(name, parent_link_name,  child_link_name) %}
+<joint name="{{ name }}" type="revolute">
+    <parent link="{{ parent_link_name }}"/>
+    <child link="{{ child_link_name }}"/>
+    <origin rpy="-1.57079632679 3.14159265359 0" xyz="0 0.081 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="300" lower="-3.05432619099" upper="3.05432619099" velocity="10"/>
+    <dynamics damping="0.5"/>
+</joint>
+{% endmacro %}
