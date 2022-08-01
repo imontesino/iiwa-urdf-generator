@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 {% from "macros/material.sdf.j2" import material_definition with context %}
 
-<robot name="lbr_iiwa">
+<robot name="{{ name }}">
 
 {% for material in materials %}
 {{ material_definition(material.name, material.color) }}

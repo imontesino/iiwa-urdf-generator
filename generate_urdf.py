@@ -19,15 +19,14 @@ config_yaml_path = choose_file('configs', '.yaml', filetype_name='config file')
 
 components = load_components(config_yaml_path, mesh_folder=mesh_folder)
 
-default_filename = urdf_template.name.split(".")[0] + '_' + config_yaml_path.name.split(".")[0]+".urdf"
+default_name = urdf_template.name.split(".")[0] + '_' + config_yaml_path.name.split(".")[0]
 
 while True:
-    name = input(f"Choose name for output file (default: {default_filename}): ")
+    name = input(f"Choose name for the urdf model (default: {default_name}): ")
     if name == "":
-        name = default
+        name = default_name
         break
     if name.isalnum():
-        name = name + ".urdf"
         break
     else:
         print("Invalid name")
@@ -41,7 +40,8 @@ env.lstrip_blocks = True
 if __name__ == "__main__":
     # Load and compile Jinja2 templates when executed
     template = env.get_template(urdf_template.name)
-    with open(name, "w") as f:
-        f.write(template.render(links=components["links"],
+    with open(name+".urdf", "w") as f:
+        f.write(template.render(name=name,
+                                links=components["links"],
                                 joints=components["joints"],
                                 materials=components["materials"]))
