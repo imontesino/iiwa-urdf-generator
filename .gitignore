@@ -4,3 +4,6 @@
 
 # generated urdfs
 *.urdf
+
+# VScode
+.vscode
