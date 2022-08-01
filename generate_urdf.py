@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from email.policy import default
 from pyexpat import model
 from jinja2 import Environment, FileSystemLoader
 import yaml
@@ -18,17 +19,29 @@ config_yaml_path = choose_file('configs', '.yaml', filetype_name='config file')
 
 components = load_components(config_yaml_path, mesh_folder=mesh_folder)
 
-generated_file = config_yaml_path.name.split(".")[0]+".urdf"
+default_filename = urdf_template.name.split(".")[0] + '_' + config_yaml_path.name.split(".")[0]+".urdf"
+
+while True:
+    name = input(f"Choose name for output file (default: {default_filename}): ")
+    if name == "":
+        name = default
+        break
+    if name.isalnum():
+        name = name + ".urdf"
+        break
+    else:
+        print("Invalid name")
 
 # Generate template
 loader = FileSystemLoader(searchpath="./src/")
 env = Environment(loader=loader, autoescape=True)
 env.trim_blocks = True
 env.lstrip_blocks = True
+
 if __name__ == "__main__":
     # Load and compile Jinja2 templates when executed
     template = env.get_template(urdf_template.name)
-    with open(generated_file, "w") as f:
+    with open(name, "w") as f:
         f.write(template.render(links=components["links"],
                                 joints=components["joints"],
                                 materials=components["materials"]))
