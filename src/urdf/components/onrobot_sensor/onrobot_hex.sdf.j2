@@ -5,17 +5,17 @@
         <mass value="0.35"/>
         <inertia ixx="0.00018631666666666665" ixy="0" iyy="0.00018631666666666665" ixz="0" izz="0.00022679999999999996" iyz="0.00018631666666666665"/>
     </inertial>
-    <visual>
-        <origin rpy="0 0 0" xyz="0 0.0105 0.025"/>
+        <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-            <box size="0.072 0.093 0.050" />
+            <mesh filename="{{ mesh_folder }}/onrobot_hex_sensor.stl"/>
         </geometry>
         <material name="{{ material }}"/>
     </visual>
     <collision>
-        <origin rpy="0 0 0" xyz="0 0.0105 0.025"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-            <box size="0.072 0.093 0.050" />
+            <mesh filename="{{ mesh_folder }}/onrobot_hex_sensor.stl"/>
         </geometry>
     </collision>
 </link>
